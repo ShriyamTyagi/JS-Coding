@@ -1,13 +1,26 @@
-function split(string_to_split, splitChar) {
+function split(inputString, splitChar) {
+
     let result = []
     let i = 0
+
+    // base case
+    if(splitChar === '') {
+        while(i < inputString.length) {
+            result.push(inputString[i])
+            i++
+        }
+
+        return result
+    }
+    
+    
     let curr_res = ""
 
     // loop till end of given string
-    while(i < string_to_split.length) {
+    while(i < inputString.length) {
 
         // if first character of split char matches the current string character
-        if(splitChar[0] === string_to_split[i]) {
+        if(splitChar[0] === inputString[i]) {
 
             // remaining split character length
             let splitCharLengthToCover = splitChar.length - 1
@@ -16,10 +29,10 @@ function split(string_to_split, splitChar) {
             let coveredSplitLength = 1
 
             // similar split characters covered till now
-            let coveredSplitChar = string_to_split[i]
+            let coveredSplitChar = inputString[i]
             
             while(splitCharLengthToCover) {
-                if(string[i + coveredSplitLength] === splitChar[coveredSplitLength]) {
+                if(inputString[i + coveredSplitLength] === splitChar[coveredSplitLength]) {
                     coveredSplitChar += splitChar[i + coveredSplitLength]
                     coveredSplitLength++
                     splitCharLengthToCover--
@@ -39,7 +52,7 @@ function split(string_to_split, splitChar) {
             i += coveredSplitLength
         }
         else {
-            curr_res += string_to_split[i]
+            curr_res += inputString[i]
             i++
         }   
     }
