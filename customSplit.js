@@ -33,7 +33,7 @@ function split(inputString, splitChar) {
             
             while(splitCharLengthToCover) {
                 if(inputString[i + coveredSplitLength] === splitChar[coveredSplitLength]) {
-                    coveredSplitChar += splitChar[i + coveredSplitLength]
+                    coveredSplitChar += inputString[i + coveredSplitLength]
                     coveredSplitLength++
                     splitCharLengthToCover--
                 }
